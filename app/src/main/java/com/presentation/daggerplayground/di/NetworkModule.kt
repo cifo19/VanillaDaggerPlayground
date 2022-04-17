@@ -19,7 +19,6 @@ private const val OK_HTTP_WRITE_TIME_OUT = 15000L
 object NetworkModule {
 
     @Provides
-    @Singleton
     fun providesGson(): Gson {
         return GsonBuilder().create()
     }
