@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "DaggerPlayground"
 include ':app'
-include ':home'
