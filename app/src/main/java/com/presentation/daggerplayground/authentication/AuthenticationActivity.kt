@@ -1,4 +1,4 @@
-package com.presentation.daggerplayground.login
+package com.presentation.daggerplayground.authentication
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,29 +14,29 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class LoginActivity : AppCompatActivity() {
+class AuthenticationActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var loginActivityViewModel: LoginActivityViewModel
+    lateinit var authenticationActivityViewModel: AuthenticationActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as DaggerPlaygroundApplication)
             .applicationComponent
-            .injectLoginActivity(this)
+            .injectAuthenticationActivity(this)
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_authentication)
 
         findViewById<Button>(R.id.login).setOnClickListener {
-            loginActivityViewModel.login("name", "surname")
+            authenticationActivityViewModel.login("name", "surname")
         }
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                loginActivityViewModel.homeActivityArgument.collect {
+                authenticationActivityViewModel.homeActivityArgument.collect {
                     finish()
                     startActivity(
-                        Intent(this@LoginActivity, HomeActivity::class.java)
+                        Intent(this@AuthenticationActivity, HomeActivity::class.java)
                             .apply { putExtra(HomeActivity.KEY_HOME_ARGUMENTS, it) }
                     )
                 }

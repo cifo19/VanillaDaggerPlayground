@@ -1,4 +1,4 @@
-package com.presentation.daggerplayground.login
+package com.presentation.daggerplayground.authentication
 
 import com.presentation.daggerplayground.data.UserRepository
 import com.presentation.daggerplayground.data.response.LoginResponse
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class LoginActivityViewModel @Inject constructor(
+class AuthenticationActivityViewModel @Inject constructor(
     private val userRepository: UserRepository
 ) {
 

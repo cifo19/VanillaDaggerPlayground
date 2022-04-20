@@ -1,10 +1,8 @@
 package com.presentation.daggerplayground.di
 
 import com.presentation.daggerplayground.DaggerPlaygroundApplication
-import com.presentation.daggerplayground.home.HomeActivity
-import com.presentation.daggerplayground.home.hobbies.HobbiesFragment
-import com.presentation.daggerplayground.home.information.InformationFragment
-import com.presentation.daggerplayground.login.LoginActivity
+import com.presentation.daggerplayground.home.LoginUserComponent
+import com.presentation.daggerplayground.authentication.AuthenticationActivity
 import dagger.Component
 import javax.inject.Singleton
 
@@ -15,18 +13,14 @@ import javax.inject.Singleton
         PicassoModule::class,
         UserServiceModule::class,
         ApplicationContextModule::class,
+        SubcomponentsModule::class
     ]
 )
 interface ApplicationComponent {
 
-    // Application
     fun injectApplication(daggerPlaygroundApplication: DaggerPlaygroundApplication)
 
-    // Activity
-    fun injectLoginActivity(loginActivity: LoginActivity)
-    fun injectHomeActivity(homeActivity: HomeActivity)
+    fun loginUserComponent(): LoginUserComponent.Factory
 
-    // Fragment
-    fun injectInformationFragment(informationFragment: InformationFragment)
-    fun injectHobbiesFragment(hobbiesFragment: HobbiesFragment)
+    fun injectAuthenticationActivity(authenticationActivity: AuthenticationActivity)
 }

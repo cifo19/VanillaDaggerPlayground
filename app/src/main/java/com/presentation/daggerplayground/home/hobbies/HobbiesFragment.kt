@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.presentation.daggerplayground.DaggerPlaygroundApplication
 import com.presentation.daggerplayground.R
+import com.presentation.daggerplayground.home.HomeActivity
 import com.presentation.daggerplayground.home.HomeViewModel
 import javax.inject.Inject
 
@@ -17,8 +17,9 @@ class HobbiesFragment: Fragment(R.layout.fragment_hobbies) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (requireActivity().application as DaggerPlaygroundApplication)
-            .applicationComponent
+
+        (requireActivity() as HomeActivity)
+            .loginUserComponent
             .injectHobbiesFragment(this)
     }
 

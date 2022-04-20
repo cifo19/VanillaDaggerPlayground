@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DaggerPlayground" >
         <activity
-            android:name=".login.LoginActivity"
+            android:name=".authentication.AuthenticationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

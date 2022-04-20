@@ -1,16 +1,16 @@
 package com.presentation.daggerplayground.home
 
+import com.presentation.daggerplayground.di.ActivityScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
+@ActivityScope
 class HomeViewModel @Inject constructor() {
 
     private var userInfo: UserInfo? = null
 
-    private var verifiedStateFlow =  MutableStateFlow(false)
+    private var verifiedStateFlow = MutableStateFlow(false)
     val verified = verifiedStateFlow.asStateFlow()
 
     fun setUserInfo(homeActivityArgument: HomeActivityArgument) {

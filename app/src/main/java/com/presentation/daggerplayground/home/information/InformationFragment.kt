@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.presentation.daggerplayground.DaggerPlaygroundApplication
 import com.presentation.daggerplayground.R
+import com.presentation.daggerplayground.home.HomeActivity
 import com.presentation.daggerplayground.home.HomeViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -24,8 +24,8 @@ class InformationFragment : Fragment(R.layout.fragment_information) {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        (requireActivity().application as DaggerPlaygroundApplication)
-            .applicationComponent
+        (requireActivity() as HomeActivity)
+            .loginUserComponent
             .injectInformationFragment(this)
     }
 
