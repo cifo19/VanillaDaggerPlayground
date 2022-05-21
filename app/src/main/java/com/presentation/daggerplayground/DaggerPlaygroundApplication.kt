@@ -1,21 +1,13 @@
 package com.presentation.daggerplayground
 
 import android.app.Application
-import android.util.Log
-import com.google.gson.Gson
+import androidx.startup.AppInitializer
 import com.presentation.daggerplayground.di.ApplicationComponent
 import com.presentation.daggerplayground.di.ApplicationContextModule
 import com.presentation.daggerplayground.di.DaggerApplicationComponent
-import com.squareup.picasso.Picasso
-import javax.inject.Inject
+import com.presentation.daggerplayground.initializers.TimberInitializer
 
 class DaggerPlaygroundApplication : Application() {
-
-    @Inject
-    lateinit var gson: Gson
-
-    @Inject
-    lateinit var picasso: Picasso
 
     lateinit var applicationComponent: ApplicationComponent
 
@@ -27,7 +19,7 @@ class DaggerPlaygroundApplication : Application() {
             .build()
         applicationComponent.injectApplication(daggerPlaygroundApplication = this)
 
-        Log.d("gson", gson.toString())
-        Log.d("picasso", picasso.toString())
+        AppInitializer.getInstance(this)
+            .initializeComponent(TimberInitializer::class.java)
     }
 }

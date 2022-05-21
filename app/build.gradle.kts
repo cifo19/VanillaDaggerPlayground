@@ -48,6 +48,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.8")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
 
+    implementation("androidx.startup:startup-runtime:1.1.1")
+    implementation ("com.jakewharton.timber:timber:4.7.1")
+
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.appcompat:appcompat:1.4.1")
     implementation("com.google.android.material:material:1.5.0")

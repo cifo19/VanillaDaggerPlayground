@@ -1,9 +1,11 @@
 package com.presentation.daggerplayground.di
 
 import com.presentation.daggerplayground.DaggerPlaygroundApplication
-import com.presentation.daggerplayground.home.LoginUserComponent
 import com.presentation.daggerplayground.authentication.AuthenticationActivity
+import com.presentation.daggerplayground.home.LoginUserComponent
+import com.presentation.daggerplayground.timber.TimberReleaseTree
 import dagger.Component
+import timber.log.Timber
 import javax.inject.Singleton
 
 @Singleton
@@ -16,7 +18,7 @@ import javax.inject.Singleton
         SubcomponentsModule::class
     ]
 )
-interface ApplicationComponent {
+interface ApplicationComponent : TimberInitializerDependencies {
 
     fun injectApplication(daggerPlaygroundApplication: DaggerPlaygroundApplication)
 
