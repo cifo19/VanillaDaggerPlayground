@@ -13,5 +13,5 @@ Understanding basics of dependency - instance sharing between components in Vani
 
 # Documentation
 - The application is following the MVVM pattern.
-- ViewModel classes inherit from AAC ViewModel. They are kept simple to show how dagger provides instances. So, do not assume it is as best practice.
+- ViewModel classes do not inherit from AAC ViewModel. They are kept simple to show how dagger provides instances. So, do not assume it is as best practice.
 - On each commit's description you can find the reasons and motivation for implementations.
